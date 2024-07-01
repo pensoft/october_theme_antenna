@@ -1,50 +1,279 @@
-.media-btn_broshure_and_poster{
-  .breakpoint-small-down({
-    margin: 10px 0!important;
-  });
+.content_flyer,
+.content_press,
+.content_video,
+.content_newsletter,
+.content_logo{
+    display: flex;
+    .breakpoint-large-down({
+        justify-content: center;
+    });
+
 }
 
-.newsletter_title{
-  position: absolute;
-  color: @white-color;
-  display: block;
-  width: 302px;
-  text-align: center;
-  margin-top: 85px;
-  .breakpoint-small-down({
+.flyer,
+.videos,
+.newsletters,
+.logo{
+    .go-back{
+        display: flex;
+        justify-content: start;
+        width: fit-content;
+        margin-bottom: 20px;
+        .back-to-news{
+            width: fit-content;
+            font-size: 17px;
+            color: #004D746E;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+
+    p{
+        font-size: 24px;
+        font-weight: bold;
+        color: @dark-color;
+    }
+}
+.press-releases{
+    .go-back{
+        display: flex;
+        justify-content: start;
+        width: fit-content;
+        margin-bottom: 20px;
+        .back-to-news{
+            width: fit-content;
+            font-size: 17px;
+            color: #004D746E;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.media-center {
+    font-family: 'Cabin';
+    
+    .card_image_container {
+        background-color: #DDDDDD;
+        border-radius: 10px;
+        max-width: 100%;
+        transition: all ease-in-out 0.3s;
+
+        .card_icon {
+            display: flex;
+            width: 227px;
+            height: 196px;
+            border-radius: 10px;
+            background-size: 40% !important;
+            transition: all ease-in-out 0.3s;
+        }
+    }
+    
+    .media_label {
+        font-size: 21px;
+        font-weight: 600;
+        color: @dark-color;
+    }
+
+    .media_item {
+        .card_bg {
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all ease-in-out 0.3s;
+            background-color: #DDDDDD;
+            width: 227px;
+            height: 196px;
+            background-size: 100% !important;
+            .breakpoint-large-down({
+                width: 100%;
+                height: 100%;
+            });
+        }
+
+        &:nth-of-type(1) .card_bg {
+            background: url("../../assets/images/logo_mockup.png") center no-repeat;
+        }
+
+        &:nth-of-type(2) .card_bg {
+            background: url("../../assets/images/baloons_promotional-materials.svg") center no-repeat;
+        }
+
+        &:nth-of-type(3) .card_bg {
+            background: url("../../assets/images/baloons_press-releases.svg") center no-repeat;
+        }
+
+        &:nth-of-type(4) .card_bg {
+            background: url("../../assets/images/baloons_newsletter.svg") center no-repeat;
+        }
+
+        &:nth-of-type(5) .card_bg {
+            background: url("../../assets/images/baloons_videos.svg") center no-repeat;
+        }
+
+        .card_bg:hover {
+            background-size: 110% !important; /* Scale image on hover */
+        }
+    }
+}
+
+.flyer-container,
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 195px;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    &.white{
+        background-color: @blue-color;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.flyer-container{
+    background-color: @white-color;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .breakpoint-large-down({
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+    });
+    form{
+        width: fit-content;
+    }
+    button{
+        padding: 10px 30px 10px 30px;
+        border-radius: 45px;
+        font-size: 18px;
+        background: @yellow-color;
+        border: none;
+
+
+    }
+    .button_su{
+        margin: 0 3px;
+        i{
+            background: url("../../assets/images/download.svg") center no-repeat;
+            background-size: contain;
+            width: 15px;
+            height: 14px;
+            margin-right: 6px;
+        }
+    }
+}
+
+
+
+.press-relies-item{
     width: 100%;
-  });
+    max-width: 100%;
+    background-color: @white-color;
+    margin: 0 auto 20px auto;
+    box-shadow: 0px 0px 20px #1B869426;
+    border-radius: 10px;
+    padding: 80px 30px 30px 30px;
+    position: relative;
+
+    .breakpoint-large-down({
+        width: auto;
+    });
+
+    .card-title{
+        font-size: 25px;
+    }
+
+    .date{
+        color: white;
+        width: 179px;
+        height: 63px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        font-size: 18px;
+        background: transparent linear-gradient(254deg, #004d74 0%, #afcd87 100%) 0% 0% no-repeat padding-box;
+        border-radius: 10px 0 0 0;
+        text-transform: uppercase;
+    }
+
+    .button_su{
+        margin-right: 10px;
+    }
 }
 
-.newsletter_item{
-  text-align: center;
-  .breakpoint-small-down({
-    margin-top: 50px;
-  });
-}
 
-.broshure_and_poster img, .newsletter_item img{
-  border-radius: 50%;
-}
 
-.media_label{
-  font-family: Oswald;
-  color: @dark-color;
-  font-size: 22px;
-  font-weight: 600;
+.flyer_image_container{
+    width: auto;
+    height: auto;
+    text-align: left;
+    img{
+        border: 1px solid #c1c1c1;
+    }
 }
 
 
 
-.back-to{
-  color: @link-color;
+.video-title{
+    color: @dark-color;
+
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
 }
 
-.press-releases .link a{
-  margin-right: 20px;
+.videos{
+
+    iframe, video{
+        width: 100%;
+        max-width: 100%;
+        height: 333px;
+        background-color: black;
+        margin: 0 auto 20px auto;
+        box-shadow: 0px 0px 20px #1B869426;
+        border-radius: 10px;
+        display: flex;
+        align-self: center;
+    }
+
+    .card_title{
+        text-align: center;
+    }
+
 }
-//.back-to::before{
-//  content: "";
-//  background: url(../../assets/images/Icons/arrow.svg) no-repeat;
-//  transform: rotate(90deg);
-//}
+
+.media-logo-container{
+    .go-back{
+        margin-left: 50px;
+        .breakpoint-large-down({
+            margin-left: unset;
+        })
+    }
+}

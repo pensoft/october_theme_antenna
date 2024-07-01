@@ -9,69 +9,39 @@ robot_follow = "follow"
 
 [siteSearchInclude]
 
-[jumbotron background]
-jumbotron = "backgound"
-title = 1
-background = "#ffffff"
-templates = "template1"
-description_limit = 0
-
-[jumbotron goals]
-jumbotron = "objectives"
-title = 1
-background = "unset"
-templates = "template1"
-description_limit = 0
-
-[accordion]
-maxItems = 10
-accordion = 1
-elementId = "structure"
-active = 0
-collapsible = "true"
-heightStyle = "content"
-iconsHeader = "ui-icon-blank"
-iconsHeaderActive = "ui-icon-blank"
+[jumbotron about_intro]
+jumbotron = "about"
+background = "transperant"
 templates = "template3"
-
-[jumbotron]
-jumbotron = "about-page-image"
-background = "#ffffff"
-templates = "template1"
 description_limit = 0
 
-[jumbotron jumbotron2]
-jumbotron = "rest-coast-will-address"
-background = "#ffffff"
-templates = "template1"
+[jumbotron about_timeline]
+jumbotron = "antenna-will-address-following-specific-objectives"
+title = 0
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron outputs]
+jumbotron = "outputs"
+title = 1
+background = "transperant"
+templates = "template3"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<div class="container">
-    <h1 class="page_heading ml-1">About</h1>
-    <div class="row middle-xs">
-        <div class="col-md-6 col-xs-12">
-             <div class="we_will">
-                {% component 'jumbotron2' %}
-             </div>
-             <div class="background">
-                {% component 'background' %}
-             </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            {% component 'jumbotron' %}
-        </div>
+
+<div class="about_intro">
+{% component 'about_intro' %}
+</div>
+
+<div class="about_timeline_container container">
+    <h1>ANTENNA will address the following specific objectives</h1>
+    <div class="about_timeline">
+        {% component 'about_timeline' %}
     </div>
-    <div class="row top-xs">
-        <div class="col-md-6 col-xs-12 about_goals_page">
-            {% component 'goals' %}
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="container-fluid work_packages " style="background-color:unset;">
-    	        <div class="container">
-                    {% component 'accordion' %}
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+
+<div class="outputs">
+    {% component 'outputs' %}
 </div>

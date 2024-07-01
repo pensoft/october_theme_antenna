@@ -5,51 +5,42 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[PartnersPage]
-limit = 0
-templates = "template7"
-button_name = "Insider"
-maxItems = 10
 ==
 <?php
 use Pensoft\Partners\Models\Partners;
-use Rainlab\Location\Models\Country;
 
 function onStart(){
-	$this['partners'] =  Partners::get();
-	$this['countries'] =  Country::where('is_enabled', true)->get();
+	$this['partners'] =  Partners::where('type', 1)->get();
 }
 ?>
 ==
-<div class="container-fluid partners_background">
-	<div class="svg_map">
-		{% partial 'components/svg' %}
-	</div>
-	<div class="container">
-	<h1 class="page_heading ml-1">Partners</h1>
-	<span class="tooltiptext" id="tooltip">Bulgaria</span>
-	{% if countries.count() %}
-	<div class="row">
-		<div class="col-md-6 col-xs-12">
-			<div class="row countries_list">
-				{% for country in countries %}
-				<div class="col-lg-3 col-xs-6 country-item">
-					<a class="country_map" href="javascript:void(0);" onclick="onCustomPartners('{{ country.code }}')">
-						<img alt="{{ country.name }}" src="{{'countries/'|media}}/{{country.name|lower|replace({' ': '_'})}}.svg">
-					</a>
-					<div class="country_label">
-						{{ country.name }}
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
+<h1 class="underline">Partners</h1>
 
-	{% endif %}
+<div class="container">
+    {% for partner in partners %}
+    <div class="col-xs-12 partner-item">
+        <div class="row middle-xs">
+            <div class="col-xs-12 col-md-1 start-md center-xs partner_cover"><img src="{{partner.cover.path}}"></div>
+            <div class="col-xs-12 col-md-10 start-md center-xs partner_title">
+                <div class="instituion-title">{{partner.instituion}}</div>
+            </div>
+            <div class="col-xs-12 col-md-1 end-md center-xs partner-flag"><span class="country_{{partner.country_code[0]}}"></span></div>
 
-	{% component 'PartnersPage' %}
-
-
-	</div>
+            <div class="col-xs-12 partner_description">
+                <div class="partner_content toogle-contact-paragraphs">
+                    {{partner.content|raw}}
+                    <div class="col-xs-12 end-md start-xs partner_link">
+                        <div class="button_su">
+                            <span class="su_button_circle"></span>
+                            <a href="{{partner.instituion_url}}" class="btn btn-slide-plain button_su_inner">
+                                <span class="button_text_container">Visit website</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="read_full">Read more</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>

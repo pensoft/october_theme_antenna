@@ -1,17 +1,12 @@
 {
     "name": "october/pensoft-antenna-theme",
     "type": "october-theme",
-    "description": "Pensoft Antenna October CMS theme",
+    "description": "Pensoft ANTENNA October CMS theme",
     "keywords": ["october", "cms", "antenna", "theme"],
     "authors": [
         {
             "name": "Kremena Kaleva",
             "email": "k.kaleva@pensoft.net",
-            "role": "Dev"
-        },
-        {
-            "name": "Georgi Zhelezov",
-            "email": "g.zhelezov@pensoft.net",
             "role": "Dev"
         }
     ],

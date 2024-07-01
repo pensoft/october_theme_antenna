@@ -22,25 +22,34 @@ function onStart(){
 ?>
 ==
 {% component 'siteSearchInclude' %}
+<h1 class="underline">Contact</h1>
 
-<div class="container">
-	<h1 class="page_heading ml-1 mb-4">Contact</h1>
+<div class="container contact-container">
 	<div class="row">
 		{% for profile in profiles %}
-			<div class="col-xs-12 col-md-6 profile-item">
-				<div class="contact_info row">
-					<div class="col-md-5 col-xs-12 coordinator_image aos-init aos-animate" data-aos="fade-up"><img src="{{profile.avatar.thumb(307, 307, {'mode':'crop'})}}" class="fr-fic fr-dii"></div>
-					<div class="col-md-7 col-xs-12 coordinator_info">
-						<h3>{{profile.names}}</h3>
-						{% if profile.position %}<p class="card_title">{{profile.position}}</p>{% endif %}
-						{% if profile.department %}<p class="contact_affiliation">{{profile.department}}</p>{% endif %}
-						{% if profile.address %}<p class="contact_address"><i class="pr big p-location"></i>{{profile.address}}</p>{% endif %}
-						{% if profile.phone %}<p class="contact_phone"><i class="pr big p-phone"></i>{{profile.phone}}</p>{% endif %}
-						{% if profile.email %}<p class="contact_mail"><i class="pr big p-mail"></i><a href="mailto:{{profile.email}}">E-mail</a></p>{% endif %}
+			<div class="col-xs-12 profile-item">
+				<div class="contact_info  row">
+					<div class="col-md-4 col-xs-12 coordinator_image">
+						<img src="{{profile.avatar|crop_image}}" class="fr-fic fr-dii">
+					</div>
+					<div class="col-md-8 col-xs-12 coordinator_info">
+						<div class="name-position">
+							<h3>{{profile.names}}</h3>
+							{% if profile.position %}
+							<div class="profile-position">
+								{{ profile.position }}
+							</div>
+							{% endif %}
+	
+						</div>
+
+						{% if profile.position %}<div class="card_title">{% if profile.partner.instituion %}{{profile.partner.instituion}}{% endif %} {% if profile.partner.instituion.country.name %}, {{profile.partner.instituion.country.name}}{% endif %}</div>{% endif %}
+					</div>
+					<div class="col-xs-12 email_container">
+						{% if profile.email %}<div class="contact_mail"><a href="mailto:{{profile.email}}"><i class="pr p-mail"></i> {{profile.email}}</a></div>{% endif %}
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
-
 </div>
