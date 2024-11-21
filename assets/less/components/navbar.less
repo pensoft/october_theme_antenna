@@ -12,7 +12,6 @@
     }
 }
 
-
 .navbar {
     position: absolute;
     width: 100%;
@@ -25,7 +24,9 @@
     box-sizing: border-box;
     // padding: 20px 20px 20px 20px;
     padding: 20px 60px !important;
-
+    .breakpoint-large-down({
+        padding: unset !important;
+    });
     a {
         // color: @navbar-color!important;
         font-size:18px;
@@ -50,8 +51,9 @@
             order: 0;
         });
         .breakpoint-large-down({
+            height: 26px;
             order: unset;
-            flex-basis: 230px;
+            // flex-basis: 230px;
         });
     }
 
@@ -143,6 +145,7 @@
                 cursor: pointer;
                 text-align: center;
                 margin-bottom: 5px;
+                font-family: 'Cabin';
 
                 &:not(.social) a{
                 }
@@ -219,6 +222,7 @@
             color: @white-color !important;
             cursor: pointer;
             margin-right: 23px;
+            font-family: 'Cabin';
             &:hover{
                 opacity: 0.6 !important;
             }
@@ -355,9 +359,12 @@
     }
     form{
         .search_input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 20px !important;
         }
-        max-width: 70%;
+        max-width: 60%;
         //float: right;
         margin: 30px auto 0 auto;
         .breakpoint-large-down({
@@ -415,6 +422,9 @@
     });
 }
 
+.search-text{
+    font-family: 'Cabin';
+}
 
 .search-btn{
     cursor: pointer;
@@ -542,7 +552,7 @@
 
     #menu
     {
-        padding-top: 100px !important;
+        padding-top: 80px !important;
         visibility: visible;
         display: none;
         position: absolute;
@@ -588,12 +598,12 @@
 
     #menu li:not(.social) a{
         color: @white-color;
-        padding: 5px 0;
+        padding: 3px 0;
         float: left;
         width: 100%;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
-        margin-top: 10px;
+        // margin-top: 10px;
     }
 
 
@@ -611,7 +621,7 @@
 
     #menu .dropdown-menu li a{
         padding: 2px 0;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: normal;
         margin-top: 0px;
     }

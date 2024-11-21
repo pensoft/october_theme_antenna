@@ -270,10 +270,29 @@
 }
 
 .media-logo-container{
+    .row{
+        width: 100% !important;
+    }
     .go-back{
         margin-left: 50px;
         .breakpoint-large-down({
             margin-left: unset;
         })
     }
+}
+
+.media-center-container{
+    .breakpoint-large-down({
+        display: flex;
+        justify-content: center;
+    });
+}
+
+.newsletter{
+    .breakpoint-large-down({
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    });
 }

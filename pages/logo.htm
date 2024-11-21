@@ -1,6 +1,6 @@
-url = "/media-center/logo"
+url = "/media-center/brand-materials"
 layout = "default"
-title = "Logo"
+title = "Brand materials"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -117,6 +117,16 @@ return Response::download($pathToFile, $fileName, $headers);
                     {{ form_close() }}
                     </div>
                     {% endif %}
+
+                    
+                    {% if record.file_pdf %}
+                    <div class="button_su">
+                    <span class="su_button_circle desplode-circle"></span>
+                    <a class="btn btn-slide-plain dwn-btn" href="{{record.file_pdf.path}}" target="_blank"><span class="button_text_container"><i class="pr normal p-download"></i>PDF</span></a>
+                    </div>
+                    {% endif %}
+
+                    
                 </div>
             </div>
             {% endif %}

@@ -79,7 +79,7 @@ return Response::download($pathToFile, $fileName, $headers);
             {% for record in records %}
             {% spaceless %}
 
-            <div class="col-md-4 col-xs-12 mb-4">
+            <div class="col-md-4 col-xs-12 mb-4 newsletter">
                 <div class="flyer-container {{record.name}}">
                     <img src="{{record.newsletter_image.path}}" title="{{record.name}}">
                 </div>
@@ -89,7 +89,7 @@ return Response::download($pathToFile, $fileName, $headers);
                     {% if record.url %}
                     <div class="button_su">
                         <span class="su_button_circle desplode-circle"></span>
-                        <a class="btn btn-slide-plain dwn-btn" href="{{record.url}}" target="_blank"><span class="button_text_container">Read the nesletter</span></a>
+                        <a class="btn btn-slide-plain dwn-btn" href="{{record.url}}" target="_blank"><span class="button_text_container">Read the newsletter</span></a>
                     </div>
                     {% endif %}
 
@@ -111,5 +111,7 @@ return Response::download($pathToFile, $fileName, $headers);
             {% endspaceless %}
             {% endfor %}
         </div>
+            {% else %}
+            <div class="no-records">Items will follow soon. Keep posted!</div>
         {% endif %}
 </div>

@@ -75,7 +75,7 @@ return Response::download($pathToFile, $fileName, $headers);
         {% set detailsUrlParameter = mediaFlyersList.detailsUrlParameter %}
 
         {% if records.count() %}
-            <div class="row">
+            <div class="row full-row">
                 {% for record in records %}
                     <div class="col-md-4 col-xs-12 mb-4">
                         <div class="flyer-container {{record.name}}">
@@ -97,5 +97,7 @@ return Response::download($pathToFile, $fileName, $headers);
                     </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <div class="no-records">Items will follow soon. Keep posted!</div>
         {% endif %}
 </div>

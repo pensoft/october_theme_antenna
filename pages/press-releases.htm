@@ -15,9 +15,7 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 
-
 [siteSearchInclude]
-
 
 [jumbotron]
 jumbotron = "under-construction"
@@ -37,13 +35,12 @@ function onStart(){
 {% component 'siteSearchInclude' %}
 {% set records = mediaPressreleasesList %}
 
-{% if records.count %}
-
 <div class="container">
-    <div class="col-xs-12 go-back">
-        <a href="{{'media-center'|page}}"  class="col-xs-12 back-to-news">Back to Media Center</a>
-    </div>
+<div class="col-xs-12 go-back">
+    <a href="{{'media-center'|page}}"  class="col-xs-12 back-to-news">Back to Media Center</a>
+</div>
 
+{% if records.count %}
     <div class="row full-row press-relieses-container">
 
 
@@ -74,7 +71,5 @@ function onStart(){
     </div>
 </div>
 {% else %}
-<div class="container-fluid bg-secondary coming_soon">
-    {% component 'jumbotron' %}
-</div>
+<div class="no-records">Items will follow soon. Keep posted!</div>
 {% endif %}

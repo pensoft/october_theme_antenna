@@ -347,15 +347,18 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         $('.video-carousel').slick({
-            arrows: true,
+            arrows: false,
             prevArrow: $('.video-prev'),
             nextArrow: $('.video-next'),
-            autoplay: false,
+            autoplay: true,         // Enable autoplay
+            autoplaySpeed: 6500,    // Set the speed of autoplay in milliseconds
             draggable: false,
-            dots: true,
+            dots: false,
             infinite: true,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            fade: true,             // Enable fade effect for smooth transition
+            cssEase: 'linear'       // Set the easing for the fade effect
         });
 
         $('.entries-carousel').slick({
@@ -546,12 +549,12 @@ $(document).ready(function () {
 
 
     $('<div class="col-xs-12 col-sm-3 card internal no-border" style="margin-bottom: 15px">\n' +
-        '<a class="folder-background" style="display:flex; background: url(https://antenna.eu/storage/app/media/pensoft/report-forms.svg) center center no-repeat; background-size: 100px; height: 200px" href="/internal-repository/dissemination-report-forms" title="Dissemination report forms"></a>\n' +
+        '<a class="folder-background" style="display:flex; background: url(https://pollinators-antenna.eu/storage/app/media/report-forms.svg) center center no-repeat; background-size: 100px; height: 200px" href="/internal-repository/dissemination-report-forms" title="Dissemination report forms"></a>\n' +
         '<h3 class="card-header"><a href="/internal-repository/dissemination-report-forms" title="Reporting forms">Reporting forms</a></h3>\n' +
         '</div>').insertAfter($('.card.internal').last());
 
     $('<div class="col-xs-12 col-sm-3 card internal no-border" style="margin-bottom: 15px">\n' +
-        '<a class="folder-background" style="display:flex; background: url(https://antenna.eu/storage/app/media/pensoft/living-documents.svg) center center no-repeat; background-size: 100px; height: 200px" href="/internal-repository/living-documents" title="Living documents"></a>\n' +
+        '<a class="folder-background" style="display:flex; background: url(https://pollinators-antenna.eu/storage/app/media/living-documents.svg) center center no-repeat; background-size: 100px; height: 200px" href="/internal-repository/living-documents" title="Living documents"></a>\n' +
         '<h3 class="card-header"><a href="/internal-repository/living-documents" title="Living documents">Living documents</a></h3>\n' +
         '</div>').insertAfter($('.card.internal').last());
 
