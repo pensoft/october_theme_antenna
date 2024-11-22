@@ -351,7 +351,7 @@ $(document).ready(function () {
             prevArrow: $('.video-prev'),
             nextArrow: $('.video-next'),
             autoplay: true,         // Enable autoplay
-            autoplaySpeed: 6500,    // Set the speed of autoplay in milliseconds
+            autoplaySpeed: 8500,    // Set the speed of autoplay in milliseconds
             draggable: false,
             dots: false,
             infinite: true,

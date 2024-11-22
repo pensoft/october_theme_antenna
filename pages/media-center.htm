@@ -25,7 +25,7 @@ function onStart(){
 ==
 <h1 class="underline">Media center</h1>
 <div class="container media-center-container">
-    <div class="row around-md around-xs">
+    <div class="row between-xs">
         {% if logos.count() %}
         <div class="col-sm-2 col-xs-12 media_item">
             <div class="card-container text-center">
@@ -40,6 +40,7 @@ function onStart(){
             </div>
         </div>
         {% endif %}
+
         {% if flyers.count() %}
         <div class="col-sm-2 col-xs-12 media_item">
             <div class="card-container text-center">
@@ -94,6 +95,17 @@ function onStart(){
         </div>
         {% endif %}
 
+        {% if presentations.count() %}
+        <div class="col-sm-2 col-xs-12 media_item">
+            <div class="card-container text-center">
+                <a href="{{url('media-center')}}/infographics" title="Infographics">
+                    <div class="card_image_container" title="Infographics"><div class="card_bg"><span class="card_icon"></span></div></div>
+                    <br><span class="media_label">Infographics</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        
     </div>
     <p>&nbsp;</p>
 </div>
