@@ -8,6 +8,11 @@ allowedUserGroups[] = "internal-users"
 allowedUserGroups[] = "registered"
 allowedUserGroups[] = "guest"
 redirect = "home"
+
+[jumbotron]
+jumbotron = "reporting-forms"
+templates = "template3"
+description_limit = 0
 ==
 {% component 'session' %}
 <h1 class="underline">Internal repository</h1>
@@ -24,6 +29,7 @@ redirect = "home"
 
 		<div class="col-xs-12 col-md-12 end-xs">
 			<h1 class="base_heading inner-page">Reporting forms</h1>
+			{% component 'jumbotron' %}
 		</div>
 
 
