@@ -90,9 +90,6 @@ $this['slug'] = $this->param('slug');
                         <a href="{{'events'|page}}/{{entry.slug}}" class="date_week">
                             {{entry.title|raw}}
                         </a>
-                        <div class="body">
-                            {{ entry.description|length > 110 ? entry.description|striptags|slice(0, 110)|replace({"&nbsp;": " ", ".": ". "}) ~ '...' : entry.description|striptags|replace({"&nbsp;": " ", ".": ". "})  }}
-                        </div>
                     </div>
                     <div class="col-md-1 col-xs-12 read-more-events center-md center-xs">
                         <a href="{{'events'|page}}/{{entry.slug}}" class="read-more"></a>

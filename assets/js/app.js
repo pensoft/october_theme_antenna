@@ -426,7 +426,7 @@ $(document).ready(function () {
             $el.css({
                 top: 110
             });
-            $up.css({
+            $el.css({
                 // Set height to prevent instant jumpdown when max height is removed
                 "height": $up.height(),
                 "max-height": 460,
@@ -627,7 +627,7 @@ function expandReadMore(el) {
         $el.html("Read more");
 
         $('html, body').animate({
-            scrollTop: $up.offset().top - $('header').height() - 300
+            scrollTop: $up.offset().top - $('header').height()
         });
     }
     return false;
@@ -685,11 +685,12 @@ function appendSearchAndSocialMedia() {
     var liSocial = '<li class="nav-item social">' +
         '<a href=\"https://twitter.com/antenna_eu\" target=\"_blank\" class=\"pr p-twitter big\" target=\"_blank\"></a>' +
         '<a href=\"https://www.linkedin.com/company/antenna-project/\" target=\"_blank\" class=\"pr p-linkedin big\" target=\"_blank\"></a>' +
-        '<a href=\"https://www.youtube.com/@antenna_eu\" target=\"_blank\" class=\"pr p-youtube big\" target=\"_blank\"></a>';
+        '<a href=\"https://www.youtube.com/@antenna_eu\" target=\"_blank\" class=\"pr p-youtube big\" target=\"_blank\"></a>' +
+        '<a href=\"https://bsky.app/profile/antenna.bsky.social\" target=\"_blank\" class=\"pr p-bluesky big\" target=\"_blank\"></a>';
     var liLogIn = '<li class="nav-item sign-in"><a href="/login" target = "_self">Login</a></li >';
 
     var menu = $('#menuToggle');
-    menu.find('>ul').append(liSearch).append(liSocial).appennd(liLogIn);
+    menu.find('>ul').append(liSearch).append(liSocial).append(liLogIn);
 }
 
 function redirectAndRefresh(url) {
@@ -708,7 +709,6 @@ function showSearchForm() {
     $('#layout-header').toggleClass('full-width');
     $('#search').toggle();
     $('.navbar a.p-search').css('visibility', 'hidden');
-    $('')
     $('#menu li').hide();
 }
 
@@ -822,7 +822,7 @@ function initMailingTooltip() {
     });
 
     $('.group-holder').eq(0).prepend("<p style='margin-left: 10px; width: 100%;'>Prior to sending group emails, please make sure that all individuals you want to contact have been included in the respective group by clicking on the group icon.</p><p></p>");
-    $('.group-holder').eq(1).prepend("<p style='margin-left: 10px; width: 100%;'>To see each person’s email, click on the account icon.</p><p></p>");
+    $('.group-holder').eq(1).prepend("<p style='margin-left: 10px; width: 100%;'>To see each person's email, click on the account icon.</p><p></p>");
 
 }
 

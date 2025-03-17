@@ -244,6 +244,22 @@ form:
                     action: show
                     field: researchgate
                     condition: checked
+            bluesky_section:
+                label: Bluesky
+                type: section
+                tab: 'Social Media'
+            bluesky:
+                label: Enable link to Bluesky profile
+                type: switch
+                default: false
+                tab: 'Social Media'
+            bluesky_url:
+                label: Input the url to your Bluesky page.
+                tab: 'Social Media'
+                trigger:
+                    action: show
+                    field: bluesky
+                    condition: checked
             font_size:
                 label: Font size
                 tab: 'Typography'
