@@ -1,19 +1,11 @@
 url = "/internal-repository/living-documents"
 layout = "default"
 title = "Living documents"
-
-[session]
-security = "user"
-allowedUserGroups[] = "internal-users"
-allowedUserGroups[] = "registered"
-allowedUserGroups[] = "guest"
-redirect = "home"
 ==
-{% component 'session' %}
 <div class="container">
 	<h1 class="page_heading internal">INTERNAL COMMUNICATION PLATFORM</h1>
 
-	<div class="row middle-xs between-xs">
+	<div class="row middle-xs between-xs" style="width: 100%;">
 		<div class="col-xs-12 col-md-5 mt-1 mb-1">
 
 		</div>
@@ -29,7 +21,16 @@ redirect = "home"
 
 		<div class="col-xs-12 mt-2">
 
-
+		<iframe
+		  src="https://docs.google.com/spreadsheets/d/1NSzVVmgIujdxBG0IeA5gh-KO24P2BDp1/edit?usp=sharing&ouid=106070160383107208993&rtpof=true&sd=true"
+		  width="100%"
+		  height="800"
+		  allowfullscreen="true"
+		  allow="fullscreen"
+		  frameborder="0"
+		  marginheight="0"
+		  marginwidth="0">
+		</iframe>		
 			{# <p><iframe src="https://drive.google.com/embeddedfolderview?id=1cbqofK37HeROaAvnu27qiIWU4y2IB2Dm#list" width="100%" height="352" frameborder="0" marginheight="0" marginwidth="0"></iframe></p>
 
 			<p><em>This folder contains a view-only copy of important project forms and tables (including&nbsp;dissemination reports). You can view and consult these documents at any time to receive an up-to-date overview on their status. </em></p>
