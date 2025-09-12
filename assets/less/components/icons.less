@@ -205,24 +205,6 @@
   }
 }
 
-
-.p-bluesky:before {
-  content: "";
-  background-image: url('../images/blue_sky.svg');
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-}
-
-.nav-item.social .p-bluesky.big:before {
-  background-size: 28px;
-  width: 28px;
-  height: 28px;
-}
-
 .p-researchgate:before {
     content: "\e900";
 }
@@ -281,8 +263,17 @@
     content: "\eaf1";
 }
 .p-twitter:before {
-  font-family: 'x-icon';
-  content: "\e901";
+    font-family: 'x-icon';
+    content: "\e902";
+}
+.p-bluesky:before {
+    font-family: 'x-icon';
+    content: "\e900";
+    font-size: 0.8em;
+}
+.p-threads:before {
+    font-family: 'x-icon';
+    content: "\e904";
 }
 .p-youtube:before {
     content: "\eaf3";

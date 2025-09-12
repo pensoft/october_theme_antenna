@@ -120,7 +120,8 @@ $this['related'] = $related;
         <div class="col-xs col-md start-md start-xs share_container">
             <span class="share_label">Share</span>
             <a href="http://twitter.com/share?text={{article.title}}&url={{page_url}}" target="_blank" class="pr p-twitter small"></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;src=sdkpreparse" target="_blank" class="pr p-facebook small"></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}" target="_blank" class="pr p-linkedin small"></a>
+            <a href="https://bsky.app/intent/compose?text={{article.title}}20%{{page_url}}" target="_blank" class="pr p-bluesky small"></a>
         </div>
 
 	</div>
@@ -145,7 +146,7 @@ $this['related'] = $related;
                                 <div class="read-more-news">
                                     <a class="more" href="{{'news'|page}}/{{record.slug}}">Read more</a>
                                 </div>
-                            </div>                                
+                            </div>
                         </div>
                         {% endif %}
                     </a>
@@ -163,7 +164,7 @@ $this['related'] = $related;
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
     {% endspaceless %}
     {% else %}
     No news
