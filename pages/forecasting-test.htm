@@ -1,0 +1,136 @@
+url = "/forecasting-test"
+layout = "default"
+title = "Forecasting API Test"
+is_hidden = 1
+==
+<!-- API Test Page -->
+<section class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Forecasting API Test</h1>
+
+                <div style="margin: 20px 0;">
+                    <h3>1. Test Session API</h3>
+                    <button onclick="testSession()" class="btn btn-primary">Test /api/forecast/session</button>
+                    <pre id="session-result" style="background: #f5f5f5; padding: 15px; margin-top: 10px;"></pre>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h3>2. Test Random Case API</h3>
+                    <button onclick="testRandomCase()" class="btn btn-primary">Test /api/forecast/case/random</button>
+                    <pre id="random-result" style="background: #f5f5f5; padding: 15px; margin-top: 10px;"></pre>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h3>3. Test Case Detail API</h3>
+                    <input type="number" id="case-id" placeholder="Case ID" style="padding: 5px;">
+                    <button onclick="testCaseDetail()" class="btn btn-primary">Test /api/forecast/case/{id}</button>
+                    <pre id="case-result" style="background: #f5f5f5; padding: 15px; margin-top: 10px;"></pre>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h3>Console Logs</h3>
+                    <pre id="console-logs" style="background: #000; color: #0f0; padding: 15px; max-height: 400px; overflow-y: auto;"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const log = (msg) => {
+    const logs = document.getElementById('console-logs');
+    const timestamp = new Date().toISOString().split('T')[1].slice(0, -1);
+    logs.textContent += `[${timestamp}] ${msg}\n`;
+    console.log(msg);
+};
+
+async function testSession() {
+    const resultEl = document.getElementById('session-result');
+    resultEl.textContent = 'Loading...';
+
+    try {
+        log('Testing session API...');
+        const response = await fetch('/api/forecast/session');
+        log(`Response status: ${response.status} ${response.statusText}`);
+
+        const contentType = response.headers.get('content-type');
+        log(`Content-Type: ${contentType}`);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        resultEl.textContent = JSON.stringify(data, null, 2);
+        log('Session test SUCCESS');
+    } catch (error) {
+        resultEl.textContent = 'ERROR: ' + error.message;
+        log('Session test FAILED: ' + error.message);
+    }
+}
+
+async function testRandomCase() {
+    const resultEl = document.getElementById('random-result');
+    resultEl.textContent = 'Loading...';
+
+    try {
+        log('Testing random case API...');
+        const response = await fetch('/api/forecast/case/random');
+        log(`Response status: ${response.status} ${response.statusText}`);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        resultEl.textContent = JSON.stringify(data, null, 2);
+        log('Random case test SUCCESS - Case ID: ' + data.id);
+
+        // Auto-populate case ID field
+        document.getElementById('case-id').value = data.id;
+    } catch (error) {
+        resultEl.textContent = 'ERROR: ' + error.message;
+        log('Random case test FAILED: ' + error.message);
+    }
+}
+
+async function testCaseDetail() {
+    const resultEl = document.getElementById('case-result');
+    const caseId = document.getElementById('case-id').value;
+
+    if (!caseId) {
+        resultEl.textContent = 'ERROR: Please enter a case ID';
+        return;
+    }
+
+    resultEl.textContent = 'Loading...';
+
+    try {
+        log(`Testing case detail API for ID ${caseId}...`);
+        const response = await fetch(`/api/forecast/case/${caseId}`);
+        log(`Response status: ${response.status} ${response.statusText}`);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        resultEl.textContent = JSON.stringify(data, null, 2);
+        log(`Case detail test SUCCESS - ${data.time_series?.length || 0} time series points`);
+    } catch (error) {
+        resultEl.textContent = 'ERROR: ' + error.message;
+        log('Case detail test FAILED: ' + error.message);
+    }
+}
+
+// Auto-test on load
+window.addEventListener('load', () => {
+    log('Page loaded. Ready to test APIs.');
+    log('Click buttons above to test each endpoint.');
+});
+</script>

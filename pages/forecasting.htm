@@ -1,0 +1,24 @@
+url = "/forecasting"
+layout = "default"
+title = "Climate Forecasting Challenge"
+is_hidden = 0
+meta_title = "Climate Forecasting Challenge"
+meta_description = "Test your prediction skills against AI models and predict future species abundance based on historical data"
+robot_index = "index"
+robot_follow = "follow"
+
+[forecastWidget]
+title = "Climate Forecasting Challenge"
+description = "Predict future species abundance based on historical data"
+show_instructions = 1
+==
+<!-- Forecasting Widget -->
+<section class="container-fluid forecasting-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                {% component 'forecastWidget' %}
+            </div>
+        </div>
+    </div>
+</section>
