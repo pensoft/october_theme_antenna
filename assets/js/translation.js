@@ -29,16 +29,16 @@ const SELECTORS = {
 const SUPPORTED_LANGUAGES = [
     { code: 'en', name: 'English', flag: 'gb' },
     { code: 'fr', name: 'French', flag: 'fr' },
-    { code: 'de', name: 'German', flag: 'de' },
     { code: 'es', name: 'Spanish', flag: 'es' },
-    // { code: 'fi', name: 'Finnish', flag: 'fi' },
-    // { code: 'lv', name: 'Latvian', flag: 'lv' },
-    // { code: 'sk', name: 'Slovak', flag: 'sk' },
-    // { code: 'pl', name: 'Polish', flag: 'pl' },
-    // { code: 'no', name: 'Norwegian', flag: 'no' },
-    // { code: 'lt', name: 'Lithuanian', flag: 'lt' },
-    // { code: 'bg', name: 'Bulgarian', flag: 'bg' },
+    { code: 'de', name: 'German', flag: 'de' }
 ];
+
+const TOOLTIP_TRANSLATIONS = {
+    'en': 'Automatic translation. May contain errors.',
+    'fr': 'Traduction automatique. Peut contenir des erreurs.',
+    'es': 'Traducción automática. Puede contener errores.',
+    'de': 'Automatische Übersetzung. Kann Fehler enthalten.'
+};
 
 /**
  * Main Translation Manager Class
@@ -223,11 +223,17 @@ class TranslationManager {
                     </div>`;
         }).join('');
 
+        // Get tooltip text in the current language
+        const tooltipText = TOOLTIP_TRANSLATIONS[currentLanguage.code] || TOOLTIP_TRANSLATIONS['en'];
+
         return `<div id="language-switcher" class="language-dropdown">
                     <div class="selected-language">
                         <span class="flag-icon flag-icon-${currentLanguage.flag}"></span>
-                        <span class="language-text">${currentLanguage.code}</span>
-                        <div class="dropdown-arrow"></div>
+                        <span class="language-text">${currentLanguage.code.toUpperCase()}</span>
+                        <div class="language-tooltip">
+                            <div class="language-tooltip-arrow"></div>
+                            <div class="language-tooltip-content">${tooltipText}</div>
+                        </div>
                     </div>
                     <div class="language-options">${optionsHTML}</div>
                 </div>`;
@@ -298,6 +304,32 @@ class TranslationManager {
         $dropdown.find('.selected-language .flag-icon')
                  .attr('class', `flag-icon flag-icon-${languageInfo.flag}`);
     }
+
+
+    /**
+     * Synchronize language dropdown
+     */
+    synchronizeLanguageDropdowns(languageInfo) {
+        // Update both desktop and mobile language dropdowns on the page
+        const selector = `${SELECTORS.GOOGLE_TRANSLATE_ELEMENT} ${SELECTORS.LANGUAGE_SWITCHER}, ${SELECTORS.GOOGLE_TRANSLATE_ELEMENT_MOBILE} ${SELECTORS.LANGUAGE_SWITCHER}`;
+        const allDropdowns = $(selector);
+
+        // Get tooltip text in the new language
+        const tooltipText = TOOLTIP_TRANSLATIONS[languageInfo.code] || TOOLTIP_TRANSLATIONS['en'];
+
+        allDropdowns.each(function() {
+            const $dropdown = $(this);
+            $dropdown.find('.language-text').text(languageInfo.code.toUpperCase());
+
+            // Update tooltip HTML content
+            $dropdown.find('.language-tooltip-content').text(tooltipText);
+
+            // Update selected option styling
+            $dropdown.find('.language-option').removeClass('selected');
+            $dropdown.find(`.language-option[data-lang-code="${languageInfo.code}"]`).addClass('selected');
+        });
+    }
+
 
     /**
      * Update selected option styling
