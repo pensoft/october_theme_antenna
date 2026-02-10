@@ -382,23 +382,23 @@ $(document).ready(function () {
             ]
         });
     });
-    
+
     $(".partner_description a.read_full").click(function () {
         var $el, $ps, $up, totalHeight;
         totalHeight = 75;
         $el = $(this); // read-more link
-    
+
         $up = $el.parent(); // partner_description
         if ($el.text() == "Read more") {
             $ps = $up.find(".partner_content p, .partner_content ul, .partner_content ol");
-    
+
             // Measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
             $ps.each(function () {
                 totalHeight += $(this).outerHeight();
             });
-    
+
             $up.addClass('changed');
-    
+
             $el.css({
                 top: totalHeight - 30
             });
@@ -407,17 +407,17 @@ $(document).ready(function () {
                 "height": $up.height() + 65,
                 "max-height": 9999,
             });
-    
+
             // Apply the height change after setting the initial height
             setTimeout(function() {
                 $up.css("height", totalHeight);
             }, 10); // Small timeout to ensure transition
-    
+
             // Show the link after the transition ends
             $up.one('transitionend', function() {
                 $(this).find('.partner_link').show();
             });
-    
+
             // Stuff to do when btn is in the read more state
             $el.html("Read less");
         } else {
@@ -431,22 +431,22 @@ $(document).ready(function () {
                 "height": $up.height(),
                 "max-height": 460,
             });
-    
+
             // Apply the height change after setting the initial height
             setTimeout(function() {
                 $up.css("height", totalHeight + 65);
             }, 10); // Small timeout to ensure transition
-    
+
             // Stuff to do when btn is in the read less state
             $el.html("Read more");
-    
+
             $('html, body').animate({
                 scrollTop: $up.offset().top - $('header').height()
             });
         }
         return false;
     });
-    
+
 
     $('.events_tabs').each(function () {
         // For each set of tabs, we want to keep track of
@@ -685,7 +685,7 @@ function appendSearchAndSocialMedia() {
     var liSocial = '<li class="nav-item social">' +
         '<a href=\"https://twitter.com/antenna_eu\" target=\"_blank\" class=\"pr p-twitter big\" target=\"_blank\"></a>' +
         '<a href=\"https://www.linkedin.com/company/antenna-project/\" target=\"_blank\" class=\"pr p-linkedin big\" target=\"_blank\"></a>' +
-        '<a href=\"https://www.youtube.com/@antenna_eu\" target=\"_blank\" class=\"pr p-youtube big\" target=\"_blank\"></a>' +
+        '<a href=\"https://www.youtube.com/@ANTENNA-Project\" target=\"_blank\" class=\"pr p-youtube big\" target=\"_blank\"></a>' +
         '<a href=\"https://bsky.app/profile/antenna.bsky.social\" target=\"_blank\" class=\"pr p-bluesky big\" target=\"_blank\"></a>';
     var liLogIn = '<li class="nav-item sign-in"><a href="/login" target = "_self">Login</a></li >';
 
