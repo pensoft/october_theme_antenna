@@ -56,7 +56,7 @@ $(document).ready(function () {
             if (checked) {
                 $('#menu').show("slide", { direction: "right" }, 400);
                 $('#search').hide();
-                $('#menu, #menu *').css({
+                $('#menu').css({
                     'visibility': 'visible'
                 });
                 $('body', 'html').css({
