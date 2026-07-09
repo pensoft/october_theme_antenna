@@ -980,7 +980,7 @@ function initButtonStyle() {
     var searchWrapper = $('<div class="search-wrapper"></div>');
 
     submitButton.addClass('btn btn-slide-plain')
-    $('.sort-form').add('.searchLibrary').wrapAll(sortWrapper);
+    $('.sort-form').add('#searchLibrary').wrapAll(sortWrapper);
     $('.form-wrapper').append(submitButton);
 
     if ($(window).width() >= 1024) {
