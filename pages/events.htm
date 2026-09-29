@@ -87,12 +87,12 @@ $this['slug'] = $this->param('slug');
                         <span class="date_year">{{entry.start|date("Y")}}</span>
                     </div>
                     <div class="col-md-10 col-xs-12 body_container">
-                        <a href="{{'events'|page}}/{{entry.slug}}" class="date_week">
+                        <a href="{{url}}" target="_blank" class="date_week">
                             {{entry.title|raw}}
                         </a>
                     </div>
                     <div class="col-md-1 col-xs-12 read-more-events center-md center-xs">
-                        <a href="{{'events'|page}}/{{entry.slug}}" class="read-more"></a>
+                        <a href="{{url}}" target="_blank" class="read-more"></a>
                     </div>
                 </div>
                 {% endfor %}
